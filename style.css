@@ -1,13 +1,93 @@
-body {
+body, html {
     margin: 0;
     padding: 0;
+    height: 100%;
     background-color: black;
-    height: 100vh;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, #1a1a1a, #222, #111);
+    animation: flow 20s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+@keyframes flow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 #logo {
-    width: 300px;
+    width: 280px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+#logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+}
+
+.social-icons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    pointer-events: auto;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.instagram {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png');
+    top: 20%;
+    left: 70%;
+}
+.spotify {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg');
+    top: 70%;
+    left: 30%;
+}
+.youtube {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg');
+    top: 30%;
+    left: 20%;
+}
+
+.container:hover .icon {
+    opacity: 1;
+}
+
+#cables {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
