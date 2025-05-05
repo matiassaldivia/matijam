@@ -1,2 +1,0 @@
-# matijam-home
-HOME
